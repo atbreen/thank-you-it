@@ -5,7 +5,11 @@ const config: GatsbyConfig = {
     title: ``,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [`gatsby-plugin-top-layout`, `gatsby-plugin-material-ui`],
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-top-layout`,
+    `gatsby-plugin-material-ui`,
+  ],
 };
 
 export default config;
