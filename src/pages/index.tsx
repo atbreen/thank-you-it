@@ -1,22 +1,50 @@
 import { Card, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import * as React from "react";
 
 // markup
+const Header = () => (
+  <Card
+    raised={true}
+    sx={{ p: [2, 4], my: 4, mx: "auto", width: "fit-content", borderRadius: 4 }}
+  >
+    <Typography sx={{ textAlign: "center" }} variant="h2" component="h1">
+      Thank you, IT!
+    </Typography>
+  </Card>
+);
+
 const Video = () => {
   return (
     <Card
       raised={true}
-      sx={{ p: 6, mx: "auto", width: "fit-content", borderRadius: 4 }}
+      sx={{ p: [2, 4], mx: "auto", maxWidth: "md", borderRadius: 4 }}
     >
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/rksCTVFtjM4"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      <Box
+        sx={{
+          position: "relative",
+          paddingBottom: "56.25%",
+          paddingTop: "30px",
+          height: 0,
+          overflow: "hidden",
+          "& iframe, & object, & embed": {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          },
+        }}
+      >
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/5UT8RkSmN4k?start=3"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; full-screen"
+        ></iframe>
+      </Box>
     </Card>
   );
 };
@@ -27,7 +55,7 @@ const Shpeal = () => {
       raised={true}
       sx={{
         maxWidth: "md",
-        p: 4,
+        p: [2, 4],
         mx: "auto",
         width: "fit-content",
         borderRadius: 4,
@@ -51,18 +79,12 @@ const Shpeal = () => {
 
 const IndexPage = () => {
   return (
-    <main>
+    <Box component="main" sx={{ mx: [1, 2] }}>
       <title>Thank You TRCC IT Department!</title>
-      <Typography
-        sx={{ textAlign: "center", mt: 4, mb: 4 }}
-        variant="h2"
-        component="h1"
-      >
-        Thank you, IT!
-      </Typography>
+      <Header />
       <Video />
       <Shpeal />
-    </main>
+    </Box>
   );
 };
 
