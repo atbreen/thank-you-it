@@ -1,6 +1,10 @@
 import { Card, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, textAlign } from "@mui/system";
+import ghLogo from "../images/github.svg";
+import liLogo from "../images/linkedin.svg";
+import gLogo from "../images/icon.png"
 import * as React from "react";
+import { Link } from "@mui/material";
 
 // markup
 const Header = () => (
@@ -62,20 +66,83 @@ const Shpeal = () => {
         my: 4,
       }}
     >
-      <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae
-        turpis et nunc viverra vestibulum ac et lorem. Aenean gravida lorem eget
-        malesuada tincidunt. Pellentesque mollis sagittis nunc finibus
-        vulputate. Maecenas malesuada id est ut pharetra. Integer imperdiet ex
-        sed ante consequat, a egestas diam sollicitudin. Suspendisse eros nunc,
-        bibendum vitae commodo viverra, pulvinar vulputate nisl. Aenean suscipit
-        tristique diam, nec pellentesque urna. Phasellus faucibus dui sem,
-        commodo mollis arcu semper ac. Nulla vehicula laoreet erat, sed commodo
-        leo varius non. Nam ac dui vulputate, placerat lacus vel, maximus nisi.
+      <Typography component='div' textAlign='center'>
+      <strong><h1>Skye, Wayne, Terry, Ruben, Andy, Olan, Melissa and Raul,</h1></strong>
+        <h2>
+        I just wanted to take a moment to thank you 
+        all for making my experience as an IT Student worker at TRCC 
+        a fun and beneficial learning experience. I enjoyed working 
+        with each and every one of you and appreciate the culture and 
+        environment this department creates. You made my final year at 
+        TRCC significantly better than it would have been otherwise. 
+        I learned a lot during my time here and appreciate you all very much. 
+        I hope your next student workers are as cool as I am :-P. 
+        I will miss you guys and always cherish my time at this job.
+        <br/>
+        <br/>
+        Sincerely,<br/>
+        </h2>
+        <h1><i>~ April Breen</i></h1>
+
       </Typography>
     </Card>
   );
 };
+
+
+const LogoAndLink =({imgUrl, linkUrl, linkText}: {imgUrl: string, linkUrl: string, linkText: string}) => {
+ return (
+   <Box
+   sx={{
+     display: 'flex',
+     alignItems: 'center',
+    }}>&nbsp;
+      <img style={{height: 24, width: 24}} src={imgUrl}/>&nbsp;<Link href={linkUrl}><h2>{linkText}</h2></Link>
+    </Box>
+    )
+  }
+
+const Footer = () => {
+  return (
+    <Card sx={{
+      position: 'relative',
+      maxWidth: "auto",
+      p: [2, 2],
+      mx: "auto",
+      width: "fit-content",
+      borderRadius: 4,
+      my: 2,
+    }}>
+        
+         <Typography component={'div'}
+          sx={{
+            display:'flex', 
+            alignItems:'center', 
+            flexWrap:'wrap', 
+            justifyContent: 'center',
+            p: 0
+          }}> 
+          <LogoAndLink imgUrl={ghLogo} linkUrl="https://github.com/atbreen" linkText="@atBreen"/>&nbsp;
+          <LogoAndLink imgUrl={liLogo} linkUrl="https://www.linkedin.com/in/apriltbreen/" linkText="@AprilTBreen"/>
+        </Typography>
+
+        <Typography component={'div'}
+          sx={{
+            display:'flex', 
+            alignItems:'center', 
+            flexWrap:'wrap',
+            justifyContent: 'center',
+            mb: 1
+          }}>
+          <h2>This site was created with </h2>
+          <LogoAndLink imgUrl={gLogo} linkUrl="https://www.gatsbyjs.com/" linkText="Gatsby"/>
+         </Typography>
+      </Card>
+   );
+};
+
+
+
 
 const IndexPage = () => {
   return (
@@ -84,6 +151,7 @@ const IndexPage = () => {
       <Header />
       <Video />
       <Shpeal />
+      <Footer/>
     </Box>
   );
 };
