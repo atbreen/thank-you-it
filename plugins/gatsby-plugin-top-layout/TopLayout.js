@@ -29,6 +29,7 @@ let theme = createTheme({
           backgroundPosition: "top center",
           backgroundRepeat: "repeat",
           backgroundSize: "40%",
+          backgroundAttachment: "fixed",
         },
       },
     },
