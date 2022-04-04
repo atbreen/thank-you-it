@@ -179,6 +179,7 @@ const Footer = () => {
 					linkUrl='https://www.linkedin.com/in/apriltbreen/'
 					linkText='@AprilTBreen'
 				/>
+				&nbsp;
 				<LogoAndLink
 					imgUrl={dLogo}
 					linkUrl='https://discord.gg/c4pmxpqK'
